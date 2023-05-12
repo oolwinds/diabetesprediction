@@ -17,18 +17,14 @@ def diabetes_prediction(input_data):
 
 def main():
     # UI title
-    st.markdown("<h1 style='text-align: center; color: red;'>Diabetes Prediction App</h1>", unsafe_allow_html=True)
+    st.title('Diabetes Prediction App')
 
     # UI description
-    st.markdown("""
-    <div style='text-align: justify'>
+    st.write("""
     Diabetes is a chronic disease that occurs either when the pancreas does not produce enough insulin or when the body cannot effectively use the insulin it produces. 
-    This application uses a machine learning model to predict whether a person is likely to have diabetes based on certain health metrics. This app is just a project and 
-    should not be used a health advice.
-
-    
-    </div>
-    """, unsafe_allow_html=True)
+    This application uses a machine learning model to predict whether a person is likely to have diabetes based on certain health metrics. 
+    """)
+    st.markdown('**Note : This app is just a project and should not be used as health advice.**')
     
     # User input
     age = st.slider('Age', min_value=0, max_value=90, value=30)
@@ -39,6 +35,7 @@ def main():
     pregnancies = st.number_input('Number of Pregnancies', min_value=0, max_value=20, value=0)
     familydiabetic = st.selectbox('Family History of Diabetes', ['No', 'Yes'])
 
+    
     # Diabetes Test Result button
     if st.button('Am I Diabetic?'):
         familydiabetic = 1 if familydiabetic == 'Yes' else 0
@@ -49,8 +46,8 @@ def main():
     st.markdown("""
     **Author:** [Linkedin](https://www.linkedin.com/in/oolwinds111/)
     
-    **Source Code:** [GitHub](https://github.com/oolwinds)
-    """, unsafe_allow_html=True)
+    **Source Code:** [GitHub](https://github.com/oolwinds/diabetesprediction)
+    """)
 
 if __name__ == '__main__':
     main()
