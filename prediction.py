@@ -3,7 +3,7 @@ import pickle
 
 loaded_model = pickle.load(open('trained_model.sav','rb'))
 
-input_data = (5,5,5,5,5,5)
+input_data = (5,5,5,5,5,5,5)
 
 input_data_as_numpy_array = np.asarray(input_data)
 

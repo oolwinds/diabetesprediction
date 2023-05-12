@@ -17,14 +17,18 @@ def diabetes_prediction(input_data):
 
 def main():
     # UI title
-    st.title('Diabetes Prediction App')
+    st.markdown("<h1 style='text-align: center; color: red;'>Diabetes Prediction App</h1>", unsafe_allow_html=True)
 
     # UI description
-    st.write("""
+    st.markdown("""
+    <div style='text-align: justify'>
     Diabetes is a chronic disease that occurs either when the pancreas does not produce enough insulin or when the body cannot effectively use the insulin it produces. 
     This application uses a machine learning model to predict whether a person is likely to have diabetes based on certain health metrics. This app is just a project and 
     should not be used a health advice.
-    """)
+
+    
+    </div>
+    """, unsafe_allow_html=True)
     
     # User input
     age = st.slider('Age', min_value=0, max_value=90, value=30)
@@ -33,10 +37,12 @@ def main():
     blood_pressure = st.number_input('Blood Pressure (mm Hg)', min_value=0,  value=70)
     insulin = st.number_input('Insulin (mu U/ml)', min_value=0, value=30)
     pregnancies = st.number_input('Number of Pregnancies', min_value=0, max_value=20, value=0)
-    
+    familydiabetic = st.selectbox('Family History of Diabetes', ['No', 'Yes'])
+
     # Diabetes Test Result button
-    if st.button('Diabetes Test Result'):
-        diagnosis = diabetes_prediction([age,bmi,glucose,blood_pressure,insulin,pregnancies])
+    if st.button('Am I Diabetic?'):
+        familydiabetic = 1 if familydiabetic == 'Yes' else 0
+        diagnosis = diabetes_prediction([age,bmi,glucose,blood_pressure,insulin,pregnancies,familydiabetic])
         st.success(diagnosis)
     
     # Links to GitHub and LinkedIn
@@ -44,7 +50,7 @@ def main():
     **Author:** [Linkedin](https://www.linkedin.com/in/oolwinds111/)
     
     **Source Code:** [GitHub](https://github.com/oolwinds)
-    """)
+    """, unsafe_allow_html=True)
 
 if __name__ == '__main__':
     main()
