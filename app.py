@@ -2,7 +2,10 @@ import numpy as np
 import pickle
 import streamlit as st
 
-
+st.set_page_config(
+    page_title="SugarSense:Diabetes Assessment Tool",
+    page_icon = "🔎"
+)
 # Load the trained model
 loaded_model = pickle.load(open('trained_model.sav','rb'))
 
@@ -28,7 +31,7 @@ def diabetes_prediction(input_data):
 
 def main():
     # UI title
-    st.title('Diabetes Prediction App')
+    st.title('SugarSense : Diabetes Assessment')
 
     # UI description
     st.write("""
