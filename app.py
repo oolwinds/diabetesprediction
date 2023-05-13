@@ -52,7 +52,7 @@ def main():
 
     
     # Diabetes Test Result button
-    if st.button('Am I Diabetic?'):
+    if st.button('**Am I Diabetic?**'):
         familydiabetic = 1 if familydiabetic == 'Yes' else 0
         diagnosis = diabetes_prediction([age,bmi,glucose,blood_pressure,insulin,pregnancies,familydiabetic])
         if "not likely" in diagnosis:
