@@ -2,6 +2,7 @@ import numpy as np
 import pickle
 import streamlit as st
 
+
 # Load the trained model
 loaded_model = pickle.load(open('trained_model.sav','rb'))
 
@@ -11,9 +12,19 @@ def diabetes_prediction(input_data):
     input_data_reshaped = input_data_as_numpy_array.reshape(1,-1)
     prediction = loaded_model.predict(input_data_reshaped)
     if (prediction[0] == 0):
-        return "You are not likely to be diabetic."
+        return "**You are not likely to be diabetic.**"
     else:
-        return "You are likely to be diabetic."
+        return """
+        **You are likely to be diabetic.** Please consult with a healthcare professional for further guidance. Here are some general tips for managing diabetes:
+
+        1. Follow a healthy, balanced diet with plenty of fruits and vegetables.
+        2. Try to maintain a regular exercise routine.
+        3. Regularly monitor your blood glucose levels.
+        4. If you smoke, try to quit, and limit your alcohol consumption.
+        5. Regularly check your feet for cuts or sores, as diabetes can lead to foot complications.
+
+        Remember, these tips are general advice and may not be suitable for everyone. Always consult with a healthcare professional for personalized advice.
+        """
 
 def main():
     # UI title
@@ -25,6 +36,7 @@ def main():
     This application uses a machine learning model to predict whether a person is likely to have diabetes based on certain health metrics. 
     """)
     st.markdown('**Note : This app is just a project and should not be used as health advice.**')
+    st.image('diabetes.jpg')
     
     # User input
     age = st.slider('Age', min_value=0, max_value=90, value=30)
@@ -40,7 +52,10 @@ def main():
     if st.button('Am I Diabetic?'):
         familydiabetic = 1 if familydiabetic == 'Yes' else 0
         diagnosis = diabetes_prediction([age,bmi,glucose,blood_pressure,insulin,pregnancies,familydiabetic])
-        st.success(diagnosis)
+        if "not likely" in diagnosis:
+            st.success(diagnosis)
+        else:
+            st.error(diagnosis)
     
     # Links to GitHub and LinkedIn
     st.markdown("""
