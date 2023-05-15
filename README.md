@@ -2,8 +2,16 @@
 
 As a data science student, I embarked on a supervised learning classification project utilizing the Pima Diabetes Dataset. The objective of this project was to develop a machine learning model that could accurately predict if an individual has diabetes based on various health indicators. Given this context, the purpose of this project extends far beyond its technical aspects. The primary aim is to provide an accessible tool that empowers individuals to understand their risk of diabetes better. By identifying risk factors early, it is possible to take preventive measures before the onset of the disease. This not only has the potential to improve physical health outcomes, but it can also alleviate the emotional burden associated with managing a chronic condition like diabetes.
 
+## The diabetes assessment tool is live! You can access it by clicking [**Here!**](https://diabeticsprediction.onrender.com/)
+
+Data Source: https://www.openml.org/search?type=data&sort=runs&id=37
+
+
 ### Workflow
 The entire project followed a structured workflow that started with data pre-processing, followed by model selection, training and evaluation, and finally, the deployment of the predictive model in a web application.
+
+![Capture](https://github.com/oolwinds/diabetesprediction/assets/130780065/afb4cb0c-01f0-4797-8249-657c6cede834)
+
 
 **Data Pre-processing**: Importing the dataset, dealing with missing or unrealistic values, and feature engineering.
 **Model Selection**: Choosing suitable models based on the nature of the dataset and the problem statement.
@@ -36,9 +44,12 @@ To evaluate the performance of these models, I used a variety of metrics: accura
 
 ### Model Evaluation & Main Findings
 
-Logistic Regression emerged as the best performing model, achieving the highest test accuracy (78.35%), precision score (69.12%), F1-score (0.653), and AUC-ROC score (0.84). Other models, despite their unique strengths, showed signs of overfitting or had lower precision and F1-scores, making them less suitable for this dataset.
+Logistic Regression emerged as the best performing model, achieving the highest test accuracy (77.92%), precision score (69.12%), F1-score (0.653), and AUC-ROC score (0.84). Other models, despite their unique strengths, showed signs of overfitting or had lower precision and F1-scores, making them less suitable for this dataset.
+
+![Capture](https://github.com/oolwinds/diabetesprediction/assets/130780065/6d60a5e3-cdd8-412f-8f72-8db808048e4c)
 
 The 'familydiabetic' feature held the highest importance in predicting diabetes, followed by 'Pregnancies' and 'BMI'. These findings align with medical understanding that diabetes risk is influenced by heredity and high BMI.
+![download](https://github.com/oolwinds/diabetesprediction/assets/130780065/0e1ce5c7-3153-44ff-84ec-76b19f579459)
 
 ### Web Application
 As a final step, I developed a web application using Streamlit and deployed it onto Render. This application allows users to input their own health indicators and receive a prediction of their diabetes risk based on the trained logistic regression model.
@@ -53,3 +64,5 @@ This project allowed me to apply various data science concepts in a real-world c
 Through this project, I learned that although several models might seem suitable for a given dataset, the choice of model can significantly impact the accuracy and reliability of predictions. Therefore, it is crucial to thoroughly evaluate each model using appropriate metrics. I also learned the importance of feature engineering in improving model performance and making the dataset more user-friendly.
 
 As a future direction, I plan to explore more complex models and feature engineering techniques to further improve the model's predictive performance. I also hope to integrate more health indicators into the web application to provide a more comprehensive health assessment for users.
+
+![Capture](https://github.com/oolwinds/diabetesprediction/assets/130780065/4d83beab-d3bc-4cb9-91f7-b52cf6e4b350)
